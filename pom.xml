@@ -4,7 +4,7 @@
 
   <groupId>com.spotify</groupId>
   <artifactId>docker-maven-plugin</artifactId>
-  <version>0.3.9-SNAPSHOT</version>
+  <version>0.3.9.1</version>
   <packaging>maven-plugin</packaging>
   <name>docker-maven-plugin</name>
   <description>A maven plugin for docker</description>
@@ -38,12 +38,21 @@
   </scm>
 
   <distributionManagement>
+    <repository>
+      <id>arhost1.usd.lab.emc.com</id>
+      <name>cyclone-artifactory</name>
+      <url>${artifactoryUrl}</url>
+    </repository>
+  </distributionManagement>
+
+<!--
+  <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
-
+-->
   <developers>
     <developer>
       <id>dano</id>
@@ -389,6 +398,7 @@
           </dependency>
         </dependencies>
       </plugin>
+     <!--
       <plugin>
         <groupId>org.sonatype.plugins</groupId>
         <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -400,6 +410,7 @@
           <autoReleaseAfterClose>${autoReleaseAfterClose}</autoReleaseAfterClose>
         </configuration>
       </plugin>
+     -->
     </plugins>
   </build>
 

@@ -559,14 +559,15 @@ public class BuildMojo extends AbstractDockerMojo {
       commands.add("WORKDIR " + workdir);
     }
 
-    for (String file : filesToAdd) {
-      commands.add(String.format("ADD %s %s", file, normalizeDest(file)));
-    }
 
     if (runList != null && !runList.isEmpty()) {
       for (final String run : runList) {
         commands.add("RUN " + run);
       }
+    }
+
+    for (String file : filesToAdd) {
+      commands.add(String.format("ADD %s %s", file, normalizeDest(file)));
     }
 
     if (exposesSet.size() > 0) {

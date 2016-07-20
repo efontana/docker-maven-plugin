@@ -72,11 +72,11 @@ public class BuildMojoTest extends AbstractMojoTestCase {
       "MAINTAINER user",
       "ENV FOO BAR",
       "WORKDIR /opt/app",
+      "RUN ln -s /a /b",
+      "RUN wget 127.0.0.1:8080",
       "ADD resources/parent/child/child.xml resources/parent/child/",
       "ADD resources/parent/parent.xml resources/parent/",
       "ADD copy2.json .",
-      "RUN ln -s /a /b",
-      "RUN wget 127.0.0.1:8080",
       "EXPOSE 8080 8081",
       "USER app",
       "ENTRYPOINT date",
@@ -228,7 +228,7 @@ public class BuildMojoTest extends AbstractMojoTestCase {
                          any(AnsiProgressHandler.class));
     assertFilesCopied();
     assertEquals("wrong dockerfile contents", GENERATED_DOCKERFILE,
-                 Files.readAllLines(Paths.get("target/docker/Dockerfile"), UTF_8));
+                    Files.readAllLines(Paths.get("target/docker/Dockerfile"), UTF_8));
   }
 
   public void testBuildGeneratedDockerFile_CopiesEntireDirectory() throws Exception {
