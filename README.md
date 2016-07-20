@@ -1,5 +1,6 @@
 # docker-maven-plugin [![Circle CI](https://circleci.com/gh/spotify/docker-maven-plugin.png?style=badge)](https://circleci.com/gh/spotify/docker-maven-plugin)
 
+# fork to handle adds before run
 
 A Maven plugin for building and pushing Docker images.
 
